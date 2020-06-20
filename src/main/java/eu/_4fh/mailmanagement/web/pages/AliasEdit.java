@@ -1,9 +1,11 @@
 package eu._4fh.mailmanagement.web.pages;
 
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.ChoiceRenderer;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
@@ -47,8 +49,13 @@ public class AliasEdit extends GlobalTemplate {
 				add(new TextField<>("target"));
 				add(new CheckBox("alActive"));
 			} else {
-				add(new TextField<>("target", Model.of("")));
-				add(new CheckBox("alActive", Model.of(Boolean.TRUE)));
+				FormComponent<?> formElement = new TextField<>("target", Model.of(getModelObject().getTarget()));
+				formElement.add(new AttributeModifier("disabled", AttributeModifier.VALUELESS_ATTRIBUTE_ADD));
+				add(formElement);
+
+				formElement = new CheckBox("alActive", Model.of(Boolean.TRUE));
+				formElement.add(new AttributeModifier("disabled", AttributeModifier.VALUELESS_ATTRIBUTE_ADD));
+				add(formElement);
 			}
 		}
 
