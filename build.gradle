@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+    id 'war'
+}
+
+
+archivesBaseName = 'mailmanagement'
+sourceCompatibility = 11
+version = 1.0
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	implementation group: 'org.apache.wicket', name: 'wicket', version: '9.+'
+	implementation group: 'org.apache.wicket', name: 'wicket-extensions', version: '9.+'
+	implementation group: 'org.apache.wicket', name: 'wicket-auth-roles', version: '9.+'
+
+	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.+'
+	annotationProcessor group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.4.+'
+
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.+'
+	implementation group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.+'
+	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+
+	implementation group: 'com.h2database', name: 'h2', version: '1.4.+'
+}
+
+tasks.withType(JavaCompile) {
+	options.annotationProcessorGeneratedSourcesDirectory = file("src/main/resources")
+}
+
+
+sourceSets {
+	generated {
+		java {
+			srcDirs = ['src/main/resources']
+		}
+	}
+}
+
+task warToTomcat(type:War) {
+	from ('./src/main/resources') {
+		include 'META-INF/persistence.xml'
+	}
+	archiveFileName = 'mailmanagement.war'
+	destinationDirectory = file('$buildDir/../../../Tomcat/webapps')
+}
+
+task createSQLfiles(type: JavaExec) {
+    group = "build"
+    description = "Create SQL schema files"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'eu._4fh.mailmanagement.db.WriteSqlSchema'
+}

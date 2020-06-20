@@ -1,0 +1,37 @@
+<html>
+<body>
+	<wicket:extend>
+		<table class="defaultTable">
+			<thead>
+				<tr>
+					<th colspan="4"><span class="tablehead">Address
+						[<wicket:link><a href="AliasEdit.html">New</a></wicket:link>]</span></th>
+					<th colspan="2"><span class="tablehead">Alias</span></th>
+				</tr>
+				<tr>
+					<th class="subhead">ID</th>
+					<th class="subhead">Active</th>
+					<th class="subhead">Address</th>
+					<th class="subhead">Domain</th>
+					<th class="subhead">Active</th>
+					<th class="subhead">Target</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr wicket:id="tableRow">
+					<td wicket:id="id" />
+					<td wicket:id="adActive" />
+					<td wicket:id="localPart" />
+					<td wicket:id="domain.name" />
+					<td wicket:id="alActive" />
+					<td wicket:id="target" />
+					<td>[<a wicket:id="alias_edit_link">Edit</a>]</td>
+					<td>[<a wicket:id="alias_delete_link">Delete</a>]</td>
+				</tr>
+			</tbody>
+		</table>
+	</wicket:extend>
+</body>
+</html>

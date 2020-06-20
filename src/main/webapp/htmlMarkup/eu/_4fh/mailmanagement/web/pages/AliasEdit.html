@@ -1,0 +1,42 @@
+<html>
+<body>
+	<wicket:extend>
+		<form method="POST" wicket:id="editForm">
+			<table class="defaultTable">
+				<thead>
+					<tr>
+						<th class="tablehead">Option</th>
+						<th class="tablehead">Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Address</td>
+						<td><input wicket:id="localPart"></td>
+					</tr>
+					<tr>
+						<td>Domain</td>
+						<td><select wicket:id="domain"></select></td>
+					</tr>
+					<tr>
+						<td>Active</td>
+						<td><input type="checkbox" wicket:id="adActive"></td>
+					</tr>
+					<tr>
+						<td>Alias Target</td>
+						<td><input wicket:id="target"></td>
+					</tr>
+					<tr>
+						<td>Alias Active</td>
+						<td><input type="checkbox" wicket:id="alActive"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="reset" value="Reset"> <input
+							type="submit" value="Submit"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</wicket:extend>
+</body>
+</html>

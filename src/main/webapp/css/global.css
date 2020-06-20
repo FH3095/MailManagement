@@ -1,0 +1,101 @@
+body {
+	background-color: #33393a;
+	color: #EDEDED;
+}
+
+div#wrapper {
+	margin: auto;
+	min-height: 500px;
+	background-color: #2e3436;
+	box-shadow: 0 0 3px 2px #00c0ff;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+h1 {
+	color: #00c0ff;
+	border-bottom: 1px solid #00c0ff;
+	font-size: 40px;
+	margin: 0;
+	margin-top: 23px;
+	margin-bottom: 1ex;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid #888;
+}
+
+th {
+	text-align: center;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+	color: #EDEDED;
+	font-weight: normal;
+}
+
+th.subhead {
+	text-decoration: underline;
+}
+
+.tablehead, .bold {
+	font-weight: bold;
+}
+
+td {
+	text-align: center;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #EDEDED;
+}
+
+a, a:visited, a:hover, a:active {
+	text-decoration: none;
+	color: #00c0ff;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input, select {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	background-color: #33393a;
+	color: #EDEDED;
+	border-color: #888;
+	border-style: ridge;
+	border-width: 2px;
+}
+
+label {
+	display: block;
+}
+
+.right {
+	float: right;
+}
+
+/* DIV as TABLE */
+.divTable {
+	display: table;
+}
+
+.divTableRow {
+	display: table-row;
+}
+
+.divTableCell {
+	display: table-cell;
+	padding: 5px 3px;
+}

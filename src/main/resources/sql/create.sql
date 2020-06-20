@@ -1,0 +1,10 @@
+create table addresses (id bigint not null auto_increment, active bit not null, address varchar(255) not null, domain_id bigint not null, primary key (id)) engine=InnoDB;
+create table aliases (active bit not null, target varchar(255) not null, id bigint not null, primary key (id)) engine=InnoDB;
+create table domains (id bigint not null, local_user_domain bit not null, domain varchar(255) not null, primary key (id)) engine=InnoDB;
+create index IDXnlsb0pxfvxuxk9ynw6ix54o1n on addresses (active);
+alter table addresses add constraint UK21t7cg8fg5t06qb8mmgtgfab5 unique (domain_id, address);
+create index IDXtj6trjjb9rvu2wl2g0v0n033a on aliases (active);
+create index IDXpcyp9be72kf6ql35k176lxvuw on domains (local_user_domain);
+alter table domains add constraint UK9dre8n0cyj6ds8ekbptxetsry unique (domain);
+alter table addresses add constraint FKaw8n8scoubio36w1nnru1xcot foreign key (domain_id) references domains (id);
+alter table aliases add constraint FKlx31gt72dl9jvpu5b6ju4c0pl foreign key (id) references addresses (id);

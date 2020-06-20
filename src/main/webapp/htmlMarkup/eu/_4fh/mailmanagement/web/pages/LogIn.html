@@ -1,0 +1,33 @@
+<html>
+<body>
+	<wicket:extend>
+		<form wicket:id="loginForm" method="POST">
+			<fieldset>
+				<p wicket:id="loginStatus" class="statusBox"></p>
+				<div class="divTable">
+					<div class="divTableRow">
+						<div class="divTableCell">
+							<label for="loginUsername">Username:</label>
+						</div>
+						<div class="divTableCell">
+							<input wicket:id="loginUsername" id="loginUsername" type="text" />
+						</div>
+					</div>
+					<div class="divTableRow">
+						<div class="divTableCell">
+							<label for="loginPassword">Password:</label>
+						</div>
+						<div class="divTableCell">
+							<input wicket:id="loginPassword" id="loginPassword"
+								type="password" />
+						</div>
+					</div>
+				</div>
+				<p>
+					<input type="submit" value="Login" />
+				</p>
+			</fieldset>
+		</form>
+	</wicket:extend>
+</body>
+</html>
