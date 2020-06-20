@@ -7,16 +7,19 @@ import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import eu._4fh.mailmanagement.web.WicketSession;
 
 @Entity
-@Table(name = "aliases", indexes = { @Index(columnList = "active", unique = false) })
+@Table(name = "aliases", indexes = { @Index(name = "idx_active", columnList = "active", unique = false) })
 @NamedEntityGraph(name = "Alias.fetchAll", includeAllAttributes = true)
 @NamedQuery(name = "Alias.findAll", query = "SELECT a FROM Alias a INNER JOIN a.domain d ORDER BY d.name,a.localPart")
 public class Alias extends Address {
 	private static final long serialVersionUID = -6936404050812831908L;
 
 	@Column(name = "active", nullable = false)
+	@ColumnDefault(value = "1")
 	private boolean alActive;
 
 	@Column(name = "target", nullable = false, length = 255)

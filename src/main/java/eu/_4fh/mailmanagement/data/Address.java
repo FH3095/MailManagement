@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import edu.umd.cs.findbugs.annotations.ReturnValuesAreNonnullByDefault;
 import eu._4fh.mailmanagement.MailRoles;
 import eu._4fh.mailmanagement.web.WicketSession;
@@ -24,9 +26,9 @@ import eu._4fh.mailmanagement.web.WicketSession;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "addresses", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "domain_id", "address" }) }, indexes = {
-				@Index(columnList = "active", unique = false),
-				@Index(columnList = "domain_id,address", unique = true) })
+		@UniqueConstraint(name = "unique_domain_address", columnNames = { "domain_id", "address" }) }, indexes = {
+				@Index(name = "idx_active", columnList = "active", unique = false),
+				@Index(name = "idx_domain_address", columnList = "domain_id,address", unique = true) })
 public class Address implements DataObject {
 	private static final long serialVersionUID = 957328232152785407L;
 
@@ -36,6 +38,7 @@ public class Address implements DataObject {
 	private long id;
 
 	@Column(name = "active", nullable = false)
+	@ColumnDefault(value = "1")
 	private boolean adActive;
 
 	@Column(name = "address", length = 255, nullable = false)

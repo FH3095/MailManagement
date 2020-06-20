@@ -6,6 +6,11 @@
 	<persistence-unit name="eu._4fh.MailManagement"
 		transaction-type="RESOURCE_LOCAL">
 		<jta-data-source>java:/comp/env/jdbc/db</jta-data-source>
+		<class>eu._4fh.mailmanagement.data.Address</class>
+		<class>eu._4fh.mailmanagement.data.Alias</class>
+		<class>eu._4fh.mailmanagement.data.Domain</class>
+		<class>eu._4fh.mailmanagement.data.LocalUser</class>
+		<class>eu._4fh.mailmanagement.data.VirtualUser</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
 		<properties>
 			<property name="hibernate.dialect"
@@ -20,6 +25,8 @@
 		<class>eu._4fh.mailmanagement.data.Address</class>
 		<class>eu._4fh.mailmanagement.data.Alias</class>
 		<class>eu._4fh.mailmanagement.data.Domain</class>
+		<class>eu._4fh.mailmanagement.data.LocalUser</class>
+		<class>eu._4fh.mailmanagement.data.VirtualUser</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
