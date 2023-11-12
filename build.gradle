@@ -5,7 +5,7 @@ plugins {
 
 
 archivesBaseName = 'mailmanagement'
-sourceCompatibility = 11
+sourceCompatibility = 17
 version = 1.0
 
 repositories {
@@ -13,22 +13,25 @@ repositories {
 }
 
 dependencies {
-	implementation group: 'org.apache.wicket', name: 'wicket', version: '9.+'
-	implementation group: 'org.apache.wicket', name: 'wicket-extensions', version: '9.+'
-	implementation group: 'org.apache.wicket', name: 'wicket-auth-roles', version: '9.+'
+	implementation group: 'org.apache.wicket', name: 'wicket', version: '10.+'
+	implementation group: 'org.apache.wicket', name: 'wicket-extensions', version: '10.+'
+	implementation group: 'org.apache.wicket', name: 'wicket-auth-roles', version: '10.+'
 
 	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.+'
 	annotationProcessor group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.4.+'
 
-	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.+'
+	implementation group: 'com.sun.mail', name: 'jakarta.mail', version: '2.0.+'
 	implementation group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.+'
-	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+	compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
 
 	implementation group: 'com.h2database', name: 'h2', version: '1.4.+'
 }
 
 tasks.withType(JavaCompile) {
-	options.annotationProcessorGeneratedSourcesDirectory = file("src/main/resources")
+	options.generatedSourceOutputDirectory = file("src/main/resources")
+}
+tasks.withType(ProcessResources) {
+	dependsOn(compileJava)
 }
 
 

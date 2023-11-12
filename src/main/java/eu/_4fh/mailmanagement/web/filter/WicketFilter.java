@@ -1,9 +1,8 @@
 package eu._4fh.mailmanagement.web.filter;
 
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.annotation.WebInitParam;
 
 @WebFilter(value = "/*", initParams = {
 		@WebInitParam(name = "applicationClassName", value = "eu._4fh.mailmanagement.web.WicketApplication"),

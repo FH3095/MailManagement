@@ -3,16 +3,16 @@ package eu._4fh.mailmanagement.web;
 import java.util.Properties;
 
 import javax.annotation.Nonnull;
-import javax.mail.AuthenticationFailedException;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Store;
 
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.request.Request;
 
 import eu._4fh.mailmanagement.MailRoles;
+import jakarta.mail.AuthenticationFailedException;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Store;
 
 public class WicketSession extends AuthenticatedWebSession {
 	private static final long serialVersionUID = 1566657779328768438L;
