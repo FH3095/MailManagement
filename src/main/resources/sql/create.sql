@@ -2,7 +2,7 @@ create table addresses (id bigint not null auto_increment, active bit default 1 
 create table aliases (active bit default 1 not null, target varchar(255) not null, id bigint not null, primary key (id)) engine=InnoDB;
 create table domains (id bigint not null, local_user_domain bit default 0 not null, domain varchar(255) not null, primary key (id)) engine=InnoDB;
 create table local_users (active bit default 1 not null, id bigint not null, primary key (id)) engine=InnoDB;
-create table virtual_users (alias_prefix varchar(32) default NULL, password varchar(255) not null, quota_bytes bigint default NULL, active bit default 1 not null, id bigint not null, primary key (id)) engine=InnoDB;
+create table virtual_users (alias_prefix varchar(32) default NULL, password varchar(255) not null, quota_bytes bigint default NULL, quota_over_limit char(1) default N not null, active bit default 1 not null, id bigint not null, primary key (id)) engine=InnoDB;
 create index idx_active on addresses (active);
 alter table addresses add constraint idx_domain_address unique (domain_id, address);
 create index idx_active on aliases (active);

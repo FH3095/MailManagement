@@ -32,6 +32,10 @@ public class VirtualUser extends Address {
 	@ColumnDefault(value = "NULL")
 	private @CheckForNull Long quotaBytes;
 
+	@Column(name = "quota_over_limit", nullable = false)
+	@ColumnDefault(value = "N")
+	private char quotaOverLimit;
+
 	public VirtualUser() {
 	}
 

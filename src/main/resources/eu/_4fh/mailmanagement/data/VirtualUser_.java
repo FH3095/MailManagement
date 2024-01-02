@@ -10,11 +10,13 @@ public abstract class VirtualUser_ extends eu._4fh.mailmanagement.data.Address_ 
 
 	public static volatile SingularAttribute<VirtualUser, String> password;
 	public static volatile SingularAttribute<VirtualUser, Long> quotaBytes;
+	public static volatile SingularAttribute<VirtualUser, Character> quotaOverLimit;
 	public static volatile SingularAttribute<VirtualUser, Boolean> vuActive;
 	public static volatile SingularAttribute<VirtualUser, String> aliasPrefix;
 
 	public static final String PASSWORD = "password";
 	public static final String QUOTA_BYTES = "quotaBytes";
+	public static final String QUOTA_OVER_LIMIT = "quotaOverLimit";
 	public static final String VU_ACTIVE = "vuActive";
 	public static final String ALIAS_PREFIX = "aliasPrefix";
 
